@@ -26,5 +26,11 @@ class LoginPage {
         await this.page.waitForTimeout(2000);
         await this.page.locator('.btnLogin').click();
     }
+
+    async testLogOut(){
+        const signOutButton = await this.page.locator('#escuser');
+        await this.page.waitForTimeout(3000);
+        await signOutButton.click({ force: true });
+    }
 }
 export default LoginPage;

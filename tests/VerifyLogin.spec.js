@@ -8,6 +8,7 @@ test.beforeEach(async ({ page }) => {
 test('TC1: verify log in successfully', async ({ page }) => {
   const login = new LoginPage(page);
   await login.testLogIn("demouser@example.com", "Test@user1");
+  await login.testLogOut();
 })
 
 test('TC2: verify log in failure in case: email and password are blank', async ({ page }) => {
