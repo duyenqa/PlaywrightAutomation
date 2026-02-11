@@ -1,4 +1,4 @@
-# PlaywrightAutomation By JavaScript
+# PlaywrightAutomation project
 
 > 1. Run test no UI
 ```Javascript
@@ -11,7 +11,7 @@ yarn playwright test VerifyLogin.spec.js --project=chromium --headed
 ```
 
 ### Tài liệu
-- Tham khảoaywrightAutomation By JavaScript
+- Tham khảo: [Cài đặt](https://playwright.dev/docs/intro)
 
 > 1. Run test no UI
 ```Javascript
