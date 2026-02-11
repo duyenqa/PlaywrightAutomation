@@ -7,7 +7,7 @@ yarn playwright test name_file.spec.js --project=chromium
 
 >2. Run test with UI
 ```JavaScript
-yarn playwright test VerifyLogin.spec.js --project=chromium --headed
+yarn playwright test name_file.spec.js --project=chromium --headed
 ```
 
 ### Tài liệu
