@@ -16,6 +16,3 @@ yarn playwright show-report
 
 ### Tài liệu
 - Tham khảo: [Cài đặt](https://playwright.dev/docs/intro)
-
-### Tài liệu
-- Tham khảo [Cài đặt](https://playwright.dev/docs/intro)
