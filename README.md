@@ -9,6 +9,10 @@ yarn playwright test name_file.spec.js --project=chromium
 ```JavaScript
 yarn playwright test name_file.spec.js --project=chromium --headed
 ```
+>3. Show result report
+```JavaScript
+yarn playwright show-report
+```
 
 ### Tài liệu
 - Tham khảo: [Cài đặt](https://playwright.dev/docs/intro)
