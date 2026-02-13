@@ -3,7 +3,6 @@ import HandleWindow from "../pages/HandleWindow";
 
 test.beforeEach(async ({ page }) => {
     await page.goto("https://www.letskodeit.com/practice");
-    // await page.waitForTimeout(3000);
 })
 
 test("TC1: Verify handle windows", async ({ page }) => {
