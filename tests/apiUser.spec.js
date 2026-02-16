@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 
+const id = "27478f4f-bc9d-4724-8ce3-1efddfb767bd";
+
 test("Verify get all users", async({request}) => {
     const response = await request.get("/rest/v1/user", {
         headers:{
@@ -13,7 +15,7 @@ test("Verify get all users", async({request}) => {
     expect(response.status()).toBe(200);
 })
 
-test.only("Verify create one user", async({request}) => {
+test("Verify create one user", async({request}) => {
     const response = await request.post("/rest/v1/user", {
         data:{
             "name": "Hoàng Thị Thu",
@@ -34,4 +36,19 @@ test.only("Verify create one user", async({request}) => {
     const data = await response?.text();
     if(data) console.log(result); 
     expect(response.status()).toBe(201);
+})
+
+
+test.only("Verify delete one user", async({request}) => {
+    const response = await request.delete(`/rest/v1/user?id=eq.${id}`, {
+        headers:{
+            apikey: process.env.SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`, 
+            'Content-Type': 'application/json'
+        }
+    });
+    
+    console.log(response.status());
+    
+    expect(response.status()).toBe(204);
 })
