@@ -13,6 +13,7 @@ yarn playwright test name_file.spec.js --project=chromium --headed
 ```JavaScript
 yarn playwright show-report
 ```
-
+### API
+[1](https://urqyhjdgnkaywmyqdqyg.supabase.co)
 ### Tài liệu
 - Tham khảo: [Cài đặt](https://playwright.dev/docs/intro)

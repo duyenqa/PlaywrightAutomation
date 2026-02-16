@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
 
 /**
  * Read environment variables from file.
@@ -12,6 +13,12 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
+// Load file .env.local 
+dotenv.config({ path: '.env.local' });
+
+if (!process.env.SUPABASE_ANON_KEY) { throw new Error('SUPABASE_ANON_KEY is not defined in .env.local'); }
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -26,8 +33,11 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: process.env.SUPABASE_URL, 
+    extraHTTPHeaders: { 
+      apikey: process.env.SUPABASE_ANON_KEY ?? '', 
+      Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`, 
+    },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
