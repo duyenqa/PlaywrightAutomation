@@ -39,7 +39,7 @@ test("Verify create one user", async({request}) => {
 })
 
 
-test.only("Verify delete one user", async({request}) => {
+test("Verify delete one user", async({request}) => {
     const response = await request.delete(`/rest/v1/user?id=eq.${id}`, {
         headers:{
             apikey: process.env.SUPABASE_ANON_KEY,
