@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const id = "27478f4f-bc9d-4724-8ce3-1efddfb767bd";
+const id = "eae65be7-53ce-4268-a1d4-44eed6083ee8";
 
 test("Verify get all users", async({request}) => {
     const response = await request.get("/rest/v1/user", {
@@ -18,13 +18,13 @@ test("Verify get all users", async({request}) => {
 test("Verify create one user", async({request}) => {
     const response = await request.post("/rest/v1/user", {
         data:{
-            "name": "Hoàng Thị Thu",
-            "email": "thu.hoang@example.com",
-            "age": 27,
-            "job": "Nhân viên ngân hàng",
+            "name": "Nguyễn Văn An",
+            "email": "an.nguyen@example.com",
+            "age": 28,
+            "job": "Kỹ sư phần mềm",
             "address": {
-                "city": "Hà Nội",
-                "street": "78 Láng Hạ"
+            "city": "Hà Nội",
+            "street": "123 Trần Duy Hưng"
             }
         },
         headers:{
@@ -38,7 +38,6 @@ test("Verify create one user", async({request}) => {
     expect(response.status()).toBe(201);
 })
 
-
 test("Verify delete one user", async({request}) => {
     const response = await request.delete(`/rest/v1/user?id=eq.${id}`, {
         headers:{
@@ -48,7 +47,27 @@ test("Verify delete one user", async({request}) => {
         }
     });
     
-    console.log(response.status());
+    // console.log(response.status());
+    expect(response.status()).toBe(204);
+})
+
+test("Verify update one user", async({request}) => {
+    const response = await request.patch(`/rest/v1/user?id=eq.${id}`, {
+        data:{
+            "age": 26,
+            "job": "Luật sư",
+            "address": { 
+                "city": "TP. Hồ Chí Minh", 
+                "street": "Nguyễn Trãi" 
+            }
+        },
+        headers:{
+            apikey: process.env.SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`, 
+            'Content-Type': 'application/json',
+        }
+    });
     
+    // console.log(response.status());
     expect(response.status()).toBe(204);
 })
